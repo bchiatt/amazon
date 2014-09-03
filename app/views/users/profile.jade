@@ -1,0 +1,24 @@
+extends ../shared/template
+block content
+  h2 Profile
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-xs-3
+          img.img-responsive.profile-pic(src=user.photo || 'http://www.readyforce.com/static/images/reboot/generic_user_image.png')
+        .col-xs-3
+          .row
+            br
+          .row
+            .col-xs-12
+              ul.list-group
+                li.list-group-item Email: #{user.email}
+                li.list-group-item Age: #{user.age || 'Add to profile'}
+          .row
+            .col-xs-12
+              a.btn.btn-default(href='/profile/edit') Edit Profile
+       .col-xs-12
+
+
+block scripts
+

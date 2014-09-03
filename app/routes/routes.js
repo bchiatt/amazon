@@ -31,10 +31,13 @@ module.exports = function(app, express){
   app.get('/register', users.new);
   app.post('/register', users.create);
   app.get('/login', users.login);
-  app.post('/login', passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login', successFlash:'Please spend your money.', failureFlash:'Try again. We want your money.'}));
+  app.post('/login', passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login', successFlash:'Login successful!', failureFlash:'Hmmm. That login didn\'t work.'}));
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);
+  app.get('/profile/edit', users.edit);
+  app.post('/profile', users.update);
+  app.get('/profile', users.profile);
 
   console.log('Express: Routes Loaded');
 };

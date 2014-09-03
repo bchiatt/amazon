@@ -11,11 +11,12 @@
     .collapse.navbar-collapse#bs-navbar-collapse
       ul.nav.navbar-nav.navbar-right
         if user
+          li: a(href='/profile'): i.fa.fa-user &nbsp #{user.email}
           li
             form.navbar-form(method='post', action='/logout')
               .form-group
                 input(type='hidden', name='_method', value='delete')
-                button.btn.btn-danger= user.email
+                button.btn.btn-danger Logout
         else
           li: a(href='/register'): i.fa.fa-plus-square-o &nbsp Register
           li: a(href='/login'): i.fa.fa-key &nbsp Login
