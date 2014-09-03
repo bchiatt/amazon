@@ -24,6 +24,7 @@ User.register = function(o, cb){
   User.collection.findOne({email:o.email}, function(err, user){
     if(user){return cb();}
     o.password = bcrypt.hashSync(o.password, 10);
+    o.type     = 'local';
     User.collection.save(o, cb);
   });
 };
@@ -34,6 +35,19 @@ User.localAuthenticate = function(email, password, cb){
     var isOk = bcrypt.compareSync(password, user.password);
     if(!isOk){return cb();}
     cb(null, user);
+  });
+};
+
+User.twitterAuthenticate = function(token, secret, twitter, cb){
+  console.log('TOKEN', token);
+  console.log('SECRET', secret);
+  console.log('TWITTER', twitter);
+  console.log('CB', cb);
+
+  User.collection.findOne({twitterId:twitter.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {twitterId:twitter.id, username:twitter.username, displayName:twitter.displayName, type:'twitter'};
+    User.collection.save(user, cb);
   });
 };
 

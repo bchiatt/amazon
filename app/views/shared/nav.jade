@@ -11,7 +11,7 @@
     .collapse.navbar-collapse#bs-navbar-collapse
       ul.nav.navbar-nav.navbar-right
         if user
-          li: a(href='/profile'): i.fa.fa-user &nbsp #{user.email}
+          li: a(href='/profile'): i.fa.fa-user &nbsp #{user.email || user.username}
           li
             form.navbar-form(method='post', action='/logout')
               .form-group
@@ -20,4 +20,5 @@
         else
           li: a(href='/register'): i.fa.fa-plus-square-o &nbsp Register
           li: a(href='/login'): i.fa.fa-key &nbsp Login
+          li: a(href='/auth/twitter'): i.fa.fa-twitter &nbsp Twitter
 
