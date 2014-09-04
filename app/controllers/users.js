@@ -12,7 +12,7 @@ exports.login = function(req, res){
 
 exports.logout = function(req, res){
   req.logout();
-  req.flash('notice', 'You are not logged out of the system.');
+  req.flash('notice', 'You are now logged out of the system.');
   res.redirect('/');
 };
 

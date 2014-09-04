@@ -30,10 +30,18 @@ module.exports = function(app, express){
   app.get('/', home.index);
   app.get('/register', users.new);
   app.post('/register', users.create);
-  app.get('/login',                  users.login);
-  app.post('/login',                 passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login', successFlash:'Local login successful!', failureFlash:'Hmmm. That login didn\'t work.'}));
-  app.get('/auth/twitter',           passport.authenticate('twitter'));
-  app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'/', failureRedirect:'/login', successFlash:'Twitter login successful!', failureFlash:'Hmmm. That login didn\'t work.'}));
+  app.get('/login',                    users.login);
+  app.post('/login',                   passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login', successFlash:'Local login successful!', failureFlash:'Hmmm. That login didn\'t work.'}));
+  app.get('/auth/twitter',             passport.authenticate('twitter'));
+  app.get('/auth/twitter/callback',    passport.authenticate('twitter', {successRedirect:'/', failureRedirect:'/login', successFlash:'Twitter login successful!', failureFlash:'Hmmm. That login didn\'t work.'}));
+  app.get('/auth/github',              passport.authenticate('github'));
+  app.get('/auth/github/callback',     passport.authenticate('github', {successRedirect:'/', failureRedirect:'/login', successFlash:'Github login successful!', failureFlash:'Hmmm. That login didn\'t work.'}));
+  app.get('/auth/google',              passport.authenticate('google',  {scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read']}));
+  app.get('/auth/google/callback',     passport.authenticate('google', {successRedirect:'/', failureRedirect:'/login', successFlash:'Google login successful!', failureFlash:'Hmmm. That login didn\'t work.'}));
+  app.get('/auth/facebook',            passport.authenticate('facebook'));
+  app.get('/auth/facebook/callback',   passport.authenticate('facebook', {successRedirect:'/', failureRedirect:'/login', successFlash:'Facebook login successful!', failureFlash:'Hmmm. That login didn\'t work.'}));
+  app.get('/auth/trello',              passport.authenticate('trello'));
+  app.get('/auth/trello/callback',     passport.authenticate('trello', {successRedirect:'/', failureRedirect:'/login', successFlash:'Trello login successful!', failureFlash:'Hmmm. That login didn\'t work.'}));
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);

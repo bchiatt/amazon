@@ -39,14 +39,51 @@ User.localAuthenticate = function(email, password, cb){
 };
 
 User.twitterAuthenticate = function(token, secret, twitter, cb){
-  console.log('TOKEN', token);
-  console.log('SECRET', secret);
-  console.log('TWITTER', twitter);
-  console.log('CB', cb);
-
   User.collection.findOne({twitterId:twitter.id}, function(err, user){
     if(user){return cb(null, user);}
     user = {twitterId:twitter.id, username:twitter.username, displayName:twitter.displayName, type:'twitter'};
+    User.collection.save(user, cb);
+  });
+};
+
+User.githubAuthenticate = function(token, secret, github, cb){
+  User.collection.findOne({githubID:github.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {githubId:github.id, username:github.username, displayName:github.username, type:'github'};
+    User.collection.save(user, cb);
+  });
+};
+
+User.googleAuthenticate = function(token, secret, google, cb){
+  User.collection.findOne({googleID:google.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {googleId:google.id, username:google.displayName, displayName:google.displayName, type:'google'};
+    User.collection.save(user, cb);
+  });
+};
+
+User.facebookAuthenticate = function(token, secret, facebook, cb){
+  console.log('TOKEN', token);
+  console.log('SECRET', secret);
+  console.log('FACEBOOK', facebook);
+  console.log('CB', cb);
+
+  User.collection.findOne({facebookID:facebook.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {facebookId:facebook.id, username:facebook.displayName, displayName:facebook.displayName, type:'facebook'};
+    User.collection.save(user, cb);
+  });
+};
+
+User.trelloAuthenticate = function(token, secret, trello, cb){
+  console.log('TOKEN', token);
+  console.log('SECRET', secret);
+  console.log('TRELLO', trello);
+  console.log('CB', cb);
+
+  User.collection.findOne({trelloID:trello.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {trelloId:trello.id, username:trello.displayName, displayName:trello.displayName, type:'trello'};
     User.collection.save(user, cb);
   });
 };
