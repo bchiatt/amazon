@@ -30,3 +30,10 @@ exports.index = function(req, res){
 
   res.render('cart/index', {ids:Object.keys(products), products:products, subtotal:subtotal, tax:tax, total:total});
 };
+
+exports.destroy = function(req, res){
+  req.session.cart = [];
+  req.session.save(function(){
+    res.redirect('/cart');
+  });
+};

@@ -53,6 +53,7 @@ module.exports = function(app, express){
   app.get('/products', products.index);
   app.get('/cart', cart.index);
   app.post('/cart', cart.add);
+  app.delete('/cart', cart.destroy);
 
   console.log('Express: Routes Loaded');
 };

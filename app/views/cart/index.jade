@@ -3,6 +3,9 @@ block content
   .panel.panel-default
     .panel-body
       h4 Shopping Cart
+      form(method='post', action='/cart')
+        input(type='hidden', name='_method', value='delete')
+        button.btn.btn-warning(type='submit') Empty Cart
       table.table.table-hover
         thead
           tr
@@ -10,7 +13,7 @@ block content
             th Photo
             th Price
             th Quantity
-            th Subtotal
+            th Totals
         tbody
           each id in ids
             tr
@@ -19,7 +22,13 @@ block content
                 .product-photo(style='background-image: url(#{products[id].p.photo})')
               td $#{products[id].p.price.toFixed(2)}
               td= products[id].c
-              td= '$' + subtotal.toFixed(2)
+              td= '$' + (products[id].p.price * products[id].c).toFixed(2)
+        tr
+          td
+          td
+          td
+          td SubTotal
+          td= '$' + subtotal.toFixed(2)
         tr
           td
           td
