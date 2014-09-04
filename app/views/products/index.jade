@@ -12,10 +12,10 @@ block content
         tbody
           each product in products
             tr
-              td: a(href='#')= product.name
+              td: h4: a(href='#')= product.name
               td
                 .product-photo(style='background-image: url(#{product.photo})')
-              td $#{parseFloat(product.price).toFixed(2)}
+              td: h4 $#{parseFloat(product.price).toFixed(2)}
 
 block scripts
   script(src='/js/user/home.js')

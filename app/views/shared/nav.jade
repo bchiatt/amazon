@@ -20,10 +20,15 @@
                 button.btn.btn-danger Logout
         else
           li: a(href='/register'): i.fa.fa-plus-square-o &nbsp Register
-          li: a(href='/login'): i.fa.fa-key &nbsp Login
-          li: a(href='/auth/twitter'): i.fa.fa-twitter &nbsp Twitter
-          li: a(href='/auth/github'): i.fa.fa-github &nbsp Github
-          li: a(href='/auth/google'): i.fa.fa-google &nbsp Google
-          li: a(href='/auth/facebook'): i.fa.fa-facebook &nbsp Facebook
-          li: a(href='/auth/trello'): i.fa.fa-trello &nbsp Trello
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown') Login
+              span.caret
+            ul.dropdown-menu(role='menu')
+              li: a(href='/login'): i.fa.fa-key &nbsp Local
+              li.divider
+              li: a(href='/auth/twitter'): i.fa.fa-twitter &nbsp Twitter
+              li: a(href='/auth/github'): i.fa.fa-github &nbsp Github
+              li: a(href='/auth/google'): i.fa.fa-google &nbsp Google
+              li: a(href='/auth/facebook'): i.fa.fa-facebook &nbsp Facebook
+              li: a(href='/auth/trello'): i.fa.fa-trello &nbsp Trello
 
