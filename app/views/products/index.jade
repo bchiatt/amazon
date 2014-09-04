@@ -12,7 +12,10 @@ block content
         tbody
           each product in products
             tr
-              td: h4: a(href='#')= product.name
+              td
+                form(method='post', action='/cart')
+                  input(type='hidden', name='productId', value=product._id)
+                  button.btn.btn-primary(type='submit')= product.name
               td
                 .product-photo(style='background-image: url(#{product.photo})')
               td: h4 $#{parseFloat(product.price).toFixed(2)}

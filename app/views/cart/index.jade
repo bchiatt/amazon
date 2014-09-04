@@ -1,0 +1,37 @@
+extends ../shared/template
+block content
+  .panel.panel-default
+    .panel-body
+      h4 Shopping Cart
+      table.table.table-hover
+        thead
+          tr
+            th Name
+            th Photo
+            th Price
+            th Quantity
+            th Subtotal
+        tbody
+          each id in ids
+            tr
+              td= products[id].p.name
+              td
+                .product-photo(style='background-image: url(#{products[id].p.photo})')
+              td $#{products[id].p.price.toFixed(2)}
+              td= products[id].c
+              td= '$' + subtotal.toFixed(2)
+        tr
+          td
+          td
+          td
+          td Tax(7.5%)
+          td= '$' + tax.toFixed(2)
+        tr
+          td
+          td
+          td
+          td Grand Total
+          td= '$' + total.toFixed(2)
+
+block scripts
+  script(src='/js/user/home.js')
