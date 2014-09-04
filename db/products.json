@@ -1,0 +1,30 @@
+{
+  "_id" : {"$oid":"a00000000000000000000001"},
+  "name" : "Charizard",
+  "photo" : "http://inwallspeakers1.com/wp-content/uploads/2014/08/rare-pokemon-cards.jpg",
+  "price" : 10.01
+}
+{
+  "_id" : {"$oid":"a00000000000000000000002"},
+  "name" : "Black Kyurem",
+  "photo" : "http://plummytoys.com/wp-content/uploads/2014/08/rare-pokemon-cards-exultra-rare-ex-pokemon-cardslegendary-pokemon-cards-ebay-zarmkhlz-zjvnwivq.jpg",
+  "price" : 20.25
+}
+{
+  "_id" : {"$oid":"a00000000000000000000003"},
+  "name" : "Dialga",
+  "photo" : "http://www.gatheringground.com/images/POKE-Plat_dialga122.jpg",
+  "price" : 35.00
+}
+{
+  "_id" : {"$oid":"a00000000000000000000004"},
+  "name" : "Arcanine",
+  "photo" : "http://940ee6dce6677fa01d25-0f55c9129972ac85d6b1f4e703468e6b.r99.cf2.rackcdn.com/products/pictures/183553.jpg",
+  "price" : 67.50
+}
+{
+  "_id" : {"$oid":"a00000000000000000000005"},
+  "name" : "Flying Pikachu",
+  "photo" : "http://940ee6dce6677fa01d25-0f55c9129972ac85d6b1f4e703468e6b.r99.cf2.rackcdn.com/products/pictures/183569.jpg",
+  "price" : 136.23
+}

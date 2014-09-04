@@ -1,0 +1,22 @@
+extends ../shared/template
+block content
+  .panel.panel-default
+    .panel-body
+      h4 Products Page!
+      table.table.table-hover
+        thead
+          tr
+            th Name
+            th Photo
+            th Price
+        tbody
+          each product in products
+            tr
+              td: a(href='#')= product.name
+              td
+                .product-photo(style='background-image: url(#{product.photo})')
+              td $#{parseFloat(product.price).toFixed(2)}
+
+block scripts
+  script(src='/js/user/home.js')
+
