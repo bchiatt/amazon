@@ -2,7 +2,7 @@
 
 var FacebookStrategy = require('passport-facebook').Strategy,
     User            = require('../../models/user'),
-    config          = require('../../../../../../config'),
+    config          = require('../../../config'),
     facebook        = new FacebookStrategy(
                     {
                       clientID:     config.facebook.clientId,

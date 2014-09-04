@@ -2,7 +2,7 @@
 
 var TwitterStategy   = require('passport-twitter').Strategy,
     User             = require('../../models/user'),
-    config           = require('../../../../../../config.js'),
+    config           = require('../../../config.js'),
     twitter          = new TwitterStategy(
                        {
                          consumerKey:     config.twitter.apiKey,

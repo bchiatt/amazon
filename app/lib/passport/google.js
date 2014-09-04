@@ -2,7 +2,7 @@
 
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
     User          = require('../../models/user'),
-    config        = require('../../../../../../config'),
+    config        = require('../../../config'),
     google        = new GoogleStrategy(
                     {
                       clientID:     config.google.clientId,

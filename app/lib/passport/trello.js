@@ -2,7 +2,7 @@
 
 var TrelloStrategy = require('passport-trello').Strategy,
     User            = require('../../models/user'),
-    config          = require('../../../../../../config'),
+    config          = require('../../../config'),
     trello          = new TrelloStrategy(
                     {
                       consumerKey:     config.trello.clientId,

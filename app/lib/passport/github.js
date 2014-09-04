@@ -2,7 +2,7 @@
 
 var GithubStategy = require('passport-github').Strategy,
     User          = require('../../models/user'),
-    config        = require('../../../../../../config'),
+    config        = require('../../../config'),
     github        = new GithubStategy(
                     {
                       clientID:     config.github.clientId,

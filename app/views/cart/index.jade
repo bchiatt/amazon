@@ -6,6 +6,10 @@ block content
       form(method='post', action='/cart')
         input(type='hidden', name='_method', value='delete')
         button.btn.btn-warning(type='submit') Empty Cart
+
+      form(action='/charge', method='post')
+        script.stripe-button(src='https://checkout.stripe.com/checkout.js', data-key=key, data-image='/img/marketplace.png', data-name='Amazon', data-amount=Math.round(total * 100))
+
       table.table.table-hover
         thead
           tr
